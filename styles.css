@@ -10,7 +10,26 @@
     --danger: #e25555;
     --danger-hover: #c83f3f;
     --item-bg: #f9fafb;
+    --chip-bg: #eef2ff;
+    --chip-text: #2544a8;
     --shadow: 0 12px 30px rgba(31, 41, 55, 0.12);
+}
+
+body.theme-dark {
+    --bg-start: #0f172a;
+    --bg-end: #1e293b;
+    --card-bg: #111827;
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border: #334155;
+    --primary: #60a5fa;
+    --primary-hover: #3b82f6;
+    --danger: #f87171;
+    --danger-hover: #ef4444;
+    --item-bg: #1f2937;
+    --chip-bg: #1e3a8a;
+    --chip-text: #dbeafe;
+    --shadow: 0 12px 30px rgba(2, 6, 23, 0.45);
 }
 
 * {
@@ -38,10 +57,35 @@ body {
     padding: 24px;
 }
 
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
 .app-title {
-    margin: 0 0 16px;
+    margin: 0;
     font-size: 1.75rem;
     letter-spacing: 0.02em;
+}
+
+.theme-toggle {
+    border: 1px solid var(--border);
+    background: var(--item-bg);
+    color: var(--text-main);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary);
+    background: var(--chip-bg);
+    color: var(--chip-text);
 }
 
 .todo-form {
@@ -79,6 +123,35 @@ body {
 
 .add-btn:hover {
     background: var(--primary-hover);
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-main);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+}
+
+.filter-btn.active {
+    background: var(--chip-bg);
+    color: var(--chip-text);
+    border-color: var(--chip-bg);
+    font-weight: 600;
 }
 
 .todo-list {
@@ -158,6 +231,11 @@ body {
     .app {
         padding: 18px;
         border-radius: 14px;
+    }
+
+    .app-header {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .app-title {
