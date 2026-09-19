@@ -1,5 +1,6 @@
 const STORAGE_KEY = "todo-app-items";
 const THEME_STORAGE_KEY = "todo-app-theme";
+const FILTER_STORAGE_KEY = "todo-app-filter";
 const FILTER_OPTIONS = {
     all: "all",
     active: "active",
@@ -15,7 +16,7 @@ const themeToggle = document.getElementById("theme-toggle");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
 let todos = loadTodos();
-let currentFilter = FILTER_OPTIONS.all;
+let currentFilter = loadFilterState();
 let themeMode = resolveInitialThemeMode();
 
 // 監聽作業系統主題切換，僅在未手動設定時生效
@@ -24,6 +25,7 @@ const systemThemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
 // 初始化主題與畫面
 applyTheme(themeMode);
 updateThemeToggleText(themeMode);
+updateFilterButtons();
 render();
 
 if (typeof systemThemeMedia.addEventListener === "function") {
@@ -68,6 +70,7 @@ filterButtons.forEach((button) => {
         }
 
         currentFilter = nextFilter;
+        saveFilterState(currentFilter);
         updateFilterButtons();
         render();
     });
@@ -102,6 +105,22 @@ function loadTodos() {
 
 function saveTodos() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+}
+
+function loadFilterState() {
+    const saved = localStorage.getItem(FILTER_STORAGE_KEY);
+
+    if (saved === FILTER_OPTIONS.all || saved === FILTER_OPTIONS.active || saved === FILTER_OPTIONS.completed) {
+        return saved;
+    }
+
+    return FILTER_OPTIONS.all;
+}
+
+function saveFilterState(filter) {
+    if (Object.values(FILTER_OPTIONS).includes(filter)) {
+        localStorage.setItem(FILTER_STORAGE_KEY, filter);
+    }
 }
 
 function render() {
