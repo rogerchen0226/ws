@@ -179,11 +179,11 @@ function getEmptyStateMessage() {
     }
 
     if (currentFilter === FILTER_OPTIONS.active) {
-        return "目前沒有未完成的待辦事項!";
+        return "目前沒有未完成的待辦事項。這些項目可能已被篩選條件移出畫面，不是被刪除。";
     }
 
     if (currentFilter === FILTER_OPTIONS.completed) {
-        return "目前沒有已完成的待辦事項!";
+        return "目前沒有已完成的待辦事項。這些項目可能已被篩選條件移出畫面，不是被刪除。";
     }
 
     return "還沒有任何待辦事項,新增一個吧!";
