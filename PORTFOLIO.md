@@ -4,7 +4,7 @@
 
 ## 線上展示
 
-- GitHub Pages: https://<你的帳號>.github.io/<你的repo名稱>/
+- GitHub Pages: https://rogerchen0226.github.io/ws2026/
 
 ## 功能
 

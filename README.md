@@ -1,3 +1,5 @@
+![工作坊完成徽章](https://img.shields.io/badge/GitHub_Copilot_實戰工作坊-已完成-1F883D?style=for-the-badge&logo=githubcopilot&logoColor=white)
+
 # GitHub Copilot 實戰工作坊:Agent Mode × MCP × Agentic Workflows
 
 [作品集說明](PORTFOLIO.md)
